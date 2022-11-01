@@ -1,0 +1,32 @@
+<!doctype html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{% static 'style/bootstrap.min.css' %}" rel="stylesheet">
+        <!-- Fontawesome -->
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+        <title>
+            {% block title %}
+
+            {% endblock %}
+        </title>
+
+    </head>
+    <body>
+        {% include "Home/navbar.html" %}
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+    </body>
+</html>

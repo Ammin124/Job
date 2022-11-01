@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    Page Details
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header text-center">
+                {{ jobs.title }}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Location: {{jobs.location.city}}</li>
+                <li class="list-group-item">Type: {{ jobs.option }}</li>
+                <li class="list-group-item">Salary: {{jobs.salary}}</li>
+                <p class="p-4 justify">{{jobs.descriptions}}</p>
+            </ul>
+        </div>
+        <br>
+        <div class="">
+            <h3 class="text-center"> If you agree upload your cv <a href="{% url 'file' %}">Link.</a></h3>
+        </div>
+    </div>
+{% endblock %}

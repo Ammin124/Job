@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Image Upload
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-6 offset-md-3 mt-3">
+        <h3 class="text-center">Image Form</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Upload">
+        </form>
+        {% if saveObject %}
+            <h2> Successfully Upload. </h2>
+            <h2> Image Descriptions : {{ saveObject.description }}. </h2>
+            <img src="{{ saveObject.image.url }}" alt="Images" style="max-height: 500px">
+
+        {% endif %}
+    </div>
+
+{% endblock %}

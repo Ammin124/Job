@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Home Page
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for job in jobs %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-11">
+                            <h5 class="card-title">{{ job.title }}</h5>
+                            <p class="card-text"> <i class='fas fa-map-marker-alt'></i>&nbsp;{{job.location.city}} &nbsp; &nbsp; &nbsp; <i class='far fa-calendar-alt'></i>&nbsp;
+                                {{ job.option }} &nbsp; &nbsp; &nbsp;  <i class='far fa-money-bill-alt'></i>&nbsp;{{job.salary}}</p>
+                        </div>
+                        <div class="col-1">
+                            <a href="{% url 'details' job.id %}" class="btn btn-light">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </ul>
+{% endblock %}

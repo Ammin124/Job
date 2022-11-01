@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block content %}
+{% if searches %}
+    <h3 class="text-center mt-3" >You searched for info.</h3>
+    {% for search in searches %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-11">
+                            <h5 class="card-title">{{ search.title }}</h5>
+                            <p class="card-text"> <i class='fas fa-map-marker-alt'></i>&nbsp;{{search.location.city}} &nbsp; &nbsp; &nbsp; <i class='far fa-calendar-alt'></i>&nbsp;
+                                {{ job.option }} &nbsp; &nbsp; &nbsp;  <i class='far fa-money-bill-alt'></i>&nbsp;{{search.salary}}</p>
+                        </div>
+                        <div class="col-1">
+                            <a href="{% url 'details' search.id %}" class="btn btn-light">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+{% else %}
+    <h3 class="text-center mt-3">Hey! you forgot to search for a value.</h3>
+{% endif %}
+{% endblock %}
